@@ -1,6 +1,7 @@
 package com.uepb.model;
 
 public class AVLTree {
+    private int rotationCount = 0;
 
     private Node root;
 
@@ -141,6 +142,8 @@ public class AVLTree {
         }
 
         setBalance(a, b);
+        
+        rotationCount++; 
 
         return b;
     }
@@ -167,6 +170,8 @@ public class AVLTree {
         }
 
         setBalance(a, b);
+
+        rotationCount++;
 
         return b;
     }
@@ -243,5 +248,9 @@ public class AVLTree {
 
         System.out.print("Printing balance: ");
         tree.printBalance();
+    }
+
+    public void printRotationCount() {
+        System.out.println("Number of rotations: " + rotationCount);
     }
 }

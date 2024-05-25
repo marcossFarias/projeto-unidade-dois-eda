@@ -6,6 +6,7 @@ import java.util.Scanner;
  * @author jack870131
  */
 public class RedBlackBST {
+    private int rotationCount = 0;
 
     private final int R = 0;
     private final int B = 1;
@@ -154,6 +155,8 @@ public class RedBlackBST {
             right.p = nil;
             root = right;
         }
+
+        rotationCount++;
     }
 
     void rotateRight(Node node) {
@@ -180,6 +183,8 @@ public class RedBlackBST {
             left.p = nil;
             root = left;
         }
+
+        rotationCount++;
     }
 
     void transplant(Node target, Node with) {
@@ -332,5 +337,9 @@ public class RedBlackBST {
         System.out.println("Pre order");
         printTreepre(root);
         scan.close();
+    }
+
+    public void printRotationCount() {
+        System.out.println("Number of rotations: " + rotationCount);
     }
 }

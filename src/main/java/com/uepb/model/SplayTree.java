@@ -1,6 +1,8 @@
 package com.uepb.model;
 
 public class SplayTree{
+	private static int rotationCount = 0;
+
 	static class Node{
 		int data;    //data value
 		Node left;   //points to left child.
@@ -42,6 +44,8 @@ public class SplayTree{
 				gp.right = node;
 			}
 		}
+
+		rotationCount++;
 	}
 	
 	//function for performing a Right Rotation.
@@ -69,6 +73,8 @@ public class SplayTree{
 				gp.right = node;
 			}
 		}
+
+		rotationCount++;
 	}
 
 	//function for performing the Splay Operation.
@@ -261,4 +267,8 @@ public class SplayTree{
 		delete(8);
 		display();
 	}
+
+	public void printRotationCount() {
+        System.out.println("Number of rotations: " + rotationCount);
+    }
 }				
