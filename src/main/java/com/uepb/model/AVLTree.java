@@ -1,7 +1,7 @@
 package com.uepb.model;
 
 public class AVLTree {
-    private int rotationCount = 0;
+    public int rotationCount = 0;
 
     private Node root;
 
