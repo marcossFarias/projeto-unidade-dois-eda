@@ -20,4 +20,8 @@ public class SplayTreeController {
 
         return SplayTree.rotationCount;
     }
+
+    public static int getSPHeight() {
+		return SplayTree.getHeight();
+	}
 }

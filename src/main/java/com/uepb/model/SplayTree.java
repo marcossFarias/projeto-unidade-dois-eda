@@ -19,6 +19,19 @@ public class SplayTree{
 	
 	static Node root;   //root of the tree.
 	
+	public static int getHeight() {
+		return getHeight(root);
+	}
+	
+	private static int getHeight(Node node) {
+		if (node == null) {
+			return -1;
+		}
+		int leftHeight = getHeight(node.left);
+		int rightHeight = getHeight(node.right);
+		return Math.max(leftHeight, rightHeight) + 1;
+	}
+
 	//function for performing a Left Rotation.
 	private static void leftRotate(Node node){
 		//System.out.println("Rotating left : " + node.data);
