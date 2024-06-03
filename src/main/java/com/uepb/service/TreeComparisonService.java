@@ -16,16 +16,24 @@ public class TreeComparisonService {
             Path path = Paths.get(fileName);
             File file = path.toFile();
 
+            System.out.println("File: " + fileName);
+
             AVLTree avlTree = new AVLTree();
+            long startTimeAVL = System.nanoTime();
             int movesAVL = AVLController.fillTree(avlTree, file);
-            System.out.println("AVL Tree - File: " + fileName + ", Rotations: " + movesAVL);
+            long elapsedTimeAVL = System.nanoTime() - startTimeAVL;
+            System.out.println("AVL Tree - Rotations: " + movesAVL + ", Elapsed Time: " + elapsedTimeAVL / 1000000 + " ms");
 
             RedBlackBST rbTree = new RedBlackBST();
+            long startTimeRB = System.nanoTime();
             int movesRB = RedBlackController.fillTree(rbTree, file);
-            System.out.println("Red-Black Tree - File: " + fileName + ", Rotations: " + movesRB);
+            long elapsedTimeRB = System.nanoTime() - startTimeRB;
+            System.out.println("Red-Black Tree - Rotations: " + movesRB + ", Elapsed Time: " + elapsedTimeRB / 1000000 + " ms");
 
+            long startTimeSP = System.nanoTime();
             int movesSP = SplayTreeController.fillTree(file);
-            System.out.println("Splay Tree - File: " + fileName + ", Rotations: " + movesSP);
+            long elapsedTimeSP = System.nanoTime() - startTimeSP;
+            System.out.println("Splay Tree - Rotations: " + movesSP + ", Elapsed Time: " + elapsedTimeSP / 1000000 + " ms");
 
             System.out.println();
         }
