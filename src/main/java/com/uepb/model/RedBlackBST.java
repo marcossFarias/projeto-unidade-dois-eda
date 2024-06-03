@@ -24,6 +24,19 @@ public class RedBlackBST {
     private final Node nil = new Node(-1);
     private Node root = nil;
 
+    public int getHeight() {
+        return getHeight(root);
+    }
+    
+    private int getHeight(Node node) {
+        if (node == null) {
+            return -1;
+        }
+        int leftHeight = getHeight(node.left);
+        int rightHeight = getHeight(node.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
     public void printTree(Node node) {
         if (node == nil) {
             return;
