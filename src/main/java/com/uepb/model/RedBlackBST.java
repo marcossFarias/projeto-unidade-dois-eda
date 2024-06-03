@@ -6,17 +6,17 @@ import java.util.Scanner;
  * @author jack870131
  */
 public class RedBlackBST {
-    private int rotationCount = 0;
+    public int rotationCount = 0;
 
     private final int R = 0;
     private final int B = 1;
 
-    private class Node {
+    public class Node {
 
         int key = -1, color = B;
         Node left = nil, right = nil, p = nil;
 
-        Node(int key) {
+        public Node(int key) {
             this.key = key;
         }
     }
@@ -60,7 +60,7 @@ public class RedBlackBST {
         return null;
     }
 
-    private void insert(Node node) {
+    public void insert(Node node) {
         Node temp = root;
         if (root == nil) {
             root = node;
