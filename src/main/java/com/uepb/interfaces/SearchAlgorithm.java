@@ -1,4 +1,4 @@
-package com.uepb.model;
+package com.uepb.interfaces;
 
 /**
  * The common interface of most searching algorithms
