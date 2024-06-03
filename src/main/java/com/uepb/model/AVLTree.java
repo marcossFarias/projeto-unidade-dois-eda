@@ -17,7 +17,9 @@ public class AVLTree {
             parent = p;
         }
     }
-
+    public int getTreeHeight() {
+        return root.height;
+    }
     public boolean insert(int key) {
         if (root == null) {
             root = new Node(key, null);

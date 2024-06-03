@@ -21,8 +21,9 @@ public class TreeComparisonService {
             AVLTree avlTree = new AVLTree();
             long startTimeAVL = System.nanoTime();
             int movesAVL = AVLController.fillTree(avlTree, file);
+            int heightAVL = avlTree.getTreeHeight();
             long elapsedTimeAVL = System.nanoTime() - startTimeAVL;
-            System.out.println("AVL Tree - Rotations: " + movesAVL + ", Elapsed Time: " + elapsedTimeAVL / 1000000 + " ms");
+            System.out.println("AVL Tree - Rotations: " + movesAVL +  ", Height: " + heightAVL + ", Elapsed Time: " + elapsedTimeAVL / 1000000 + " ms");
 
             RedBlackBST rbTree = new RedBlackBST();
             long startTimeRB = System.nanoTime();
