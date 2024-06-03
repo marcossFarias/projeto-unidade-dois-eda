@@ -1,7 +1,7 @@
 package com.uepb.model;
 
 public class SplayTree{
-	private static int rotationCount = 0;
+	public static int rotationCount = 0;
 
 	static class Node{
 		int data;    //data value
