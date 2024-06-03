@@ -21,7 +21,7 @@ public class SplayTree{
 	
 	//function for performing a Left Rotation.
 	private static void leftRotate(Node node){
-		System.out.println("Rotating left : " + node.data);
+		//System.out.println("Rotating left : " + node.data);
 		Node parent = node.parent;
 		Node left = node.left;
 		node.left = parent;
@@ -50,7 +50,7 @@ public class SplayTree{
 	
 	//function for performing a Right Rotation.
 	private static void rightRotate(Node node){
-		System.out.println("Rotating right : " + node.data);
+		//System.out.println("Rotating right : " + node.data);
 		Node parent = node.parent;
 		Node right = node.right;
 		node.right = parent;
@@ -79,7 +79,7 @@ public class SplayTree{
 
 	//function for performing the Splay Operation.
 	private static void splay(Node node){
-		System.out.println("Splaying node : " + node.data);
+		//System.out.println("Splaying node : " + node.data);
 
 		if(node.parent == null){
 			root = node;
@@ -134,7 +134,7 @@ public class SplayTree{
 		
 	//function to add new elements in the tree.
 	public static void add(int data){
-		System.out.println("Inserting data : " + data);
+		//System.out.println("Inserting data : " + data);
 		Node node = new Node(data);
 		if(root == null){
 			root = node;
@@ -168,7 +168,7 @@ public class SplayTree{
 
 	//function to search for a data value in the tree.
 	public static Node find(int data){
-		System.out.println("Searching for node : " + data);
+		//System.out.println("Searching for node : " + data);
 		if(root==null){
 			System.out.println("Empty Tree.");
 			return null;
@@ -177,7 +177,7 @@ public class SplayTree{
 		Node temp = root;
 		while(temp!=null){
 			if(temp.data == data){
-				System.out.println("Found node : " + data);
+				//System.out.println("Found node : " + data);
 				splay(temp);
 				return temp;
 			}
@@ -188,32 +188,32 @@ public class SplayTree{
 				temp = temp.right;
 			}
 		}
-		System.out.println("Node not found.");
+		//System.out.println("Node not found.");
 		return null;
 	}
 
 	//function to find the min value from the given node.
 	public static Node findMin(Node node){
 		if(node==null){
-			System.out.println("Empty Tree.");
+			//System.out.println("Empty Tree.");
 			return null;
 		}
-		System.out.println("Finding Minimum.");
+		//System.out.println("Finding Minimum.");
 		Node min = node;
 		while(min.left!=null){
 			min = min.left;
 		}
 		splay(min);
-		System.out.println("Minimum node : " + min.data);
+		//System.out.println("Minimum node : " + min.data);
 		return min;
 	}
 
 	//function to remove elements from the tree.
 	public static void delete(int data){
-		System.out.println("Deleting node : " + data);
+		//System.out.println("Deleting node : " + data);
 		Node node = find(data);
 		if(node==null){
-			System.out.println("Node not present in the tree.");
+			//System.out.println("Node not present in the tree.");
 			return;
 		}
 
@@ -234,16 +234,16 @@ public class SplayTree{
 		if(node==null){
 			return;
 		}
-		System.out.print(node.data + " ");
+		//System.out.print(node.data + " ");
 		preOrder(node.left);
 		preOrder(node.right);
 	}
 
 	//function to display the tree.
 	public static void display(){
-		System.out.print("Tree's PreOrder Traveral : ");
+		//System.out.print("Tree's PreOrder Traveral : ");
 		preOrder(root);
-		System.out.println();
+		//System.out.println();
 	}
 
 	//main function to run the program.
