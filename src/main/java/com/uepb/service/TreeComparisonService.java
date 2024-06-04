@@ -5,9 +5,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import com.uepb.controller.AVLController;
+import com.uepb.controller.BSTInterativeConstroller;
 import com.uepb.controller.RedBlackController;
 import com.uepb.controller.SplayTreeController;
 import com.uepb.model.AVLTree;
+import com.uepb.model.BSTIterative;
 import com.uepb.model.RedBlackBST;
 
 public class TreeComparisonService {
@@ -24,6 +26,13 @@ public class TreeComparisonService {
             long elapsedTimeAVL = System.nanoTime() - startTimeAVL;
             int heightAVL = avlTree.getTreeHeight();
             System.out.println("AVL Tree - Rotations: " + movesAVL + ", Height: " + heightAVL + ", Elapsed Time: " + elapsedTimeAVL / 1000000 + " ms");
+            
+            BSTIterative bstIterative = new BSTIterative();
+            long startTimeBST = System.nanoTime();
+            int movesBST = BSTInterativeConstroller.fillTree(bstIterative, file);
+            long elapsedTimeBST = System.nanoTime() - startTimeBST;
+            int heightBST = bstIterative.getHeight();
+            System.out.println("BS Tree - Rotations: " + movesBST + ", Height: " + heightBST + ", Elapsed Time: " + elapsedTimeBST / 1000000 + " ms");
 
             RedBlackBST rbTree = new RedBlackBST();
             long startTimeRB = System.nanoTime();

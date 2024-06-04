@@ -23,10 +23,23 @@ public class BSTIterative {
      */
     private Node root;
 
+    public int getHeight() {
+        return getHeight(root);
+    }
+    
+    private int getHeight(Node node) {
+        if (node == null) {
+            return -1;
+        }
+        int leftHeight = getHeight(node.left);
+        int rightHeight = getHeight(node.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    
     /**
      * Default Constructor Initializes the root of BST with null.
      */
-    BSTIterative() {
+    public BSTIterative() {
         root = null;
     }
 
