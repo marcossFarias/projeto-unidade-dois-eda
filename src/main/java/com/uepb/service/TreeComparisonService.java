@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import com.uepb.controller.AVLController;
 import com.uepb.controller.BSTInterativeConstroller;
 import com.uepb.controller.RedBlackController;
-import com.uepb.controller.SplayTreeController;
 import com.uepb.model.AVLTree;
 import com.uepb.model.BSTIterative;
 import com.uepb.model.RedBlackBST;
@@ -40,13 +39,13 @@ public class TreeComparisonService {
             long elapsedTimeRB = System.nanoTime() - startTimeRB;
             int heightRBT = rbTree.getHeight();
             System.out.println("Red-Black Tree - Rotations: " + movesRB + ", Height: " + heightRBT + ", Elapsed Time: " + elapsedTimeRB / 1000000 + " ms");
-
+            /*
             long startTimeSP = System.nanoTime();
             int movesSP = SplayTreeController.fillTree(file);
             long elapsedTimeSP = System.nanoTime() - startTimeSP;
             int heightSP = SplayTreeController.getSPHeight();
             System.out.println("Splay Tree - Rotations: " + movesSP +  ", Height: " + heightSP + ", Elapsed Time: " + elapsedTimeSP / 1000000 + " ms");
-
+            */
             System.out.println();
         }
     }
