@@ -25,3 +25,6 @@ replay_pid*
 
 # Compiled Files
 target/
+
+# Resources
+resources/
