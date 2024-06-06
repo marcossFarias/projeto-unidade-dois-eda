@@ -1,5 +1,8 @@
 package com.uepb.model;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SplayTree{
 	public static int rotationCount = 0;
 
@@ -20,16 +23,33 @@ public class SplayTree{
 	static Node root;   //root of the tree.
 	
 	public static int getHeight() {
-		return getHeight(root);
-	}
-	
-	private static int getHeight(Node node) {
-		if (node == null) {
+		if (root == null) {
 			return -1;
 		}
-		int leftHeight = getHeight(node.left);
-		int rightHeight = getHeight(node.right);
-		return Math.max(leftHeight, rightHeight) + 1;
+		
+		int height = 0;
+		Queue<Node> queue = new LinkedList<>();
+		queue.offer(root);
+		
+		while (!queue.isEmpty()) {
+			int levelSize = queue.size();
+			
+			for (int i = 0; i < levelSize; i++) {
+				Node node = queue.poll();
+				
+				if (node.left != null) {
+					queue.offer(node.left);
+				}
+				
+				if (node.right != null) {
+					queue.offer(node.right);
+				}
+			}
+			
+			height++;
+		}
+		
+		return height;
 	}
 
 	//function for performing a Left Rotation.
