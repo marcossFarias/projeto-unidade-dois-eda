@@ -99,8 +99,12 @@ public class AVLTree {
     }
 
     private void rebalance(Node n) {
+        if (n == null) {
+            return; 
+        }
+    
         setBalance(n);
-
+    
         if (n.balance == -2) {
             if (height(n.left.left) >= height(n.left.right)) {
                 n = rotateRight(n);
@@ -114,7 +118,7 @@ public class AVLTree {
                 n = rotateRightThenLeft(n);
             }
         }
-
+    
         if (n.parent != null) {
             rebalance(n.parent);
         } else {

@@ -1,5 +1,8 @@
 package com.uepb.model;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import com.uepb.utils.BinaryTree.Node;
 
 /**
@@ -22,19 +25,37 @@ public class BSTIterative {
      * Reference for the node of BST.
      */
     private Node root;
-
-    public int getHeight() {
-        return getHeight(root);
-    }
     
-    private int getHeight(Node node) {
-        if (node == null) {
-            return -1;
+    public int getHeight() {
+        if (root == null) {
+            return 0;
         }
-        int leftHeight = getHeight(node.left);
-        int rightHeight = getHeight(node.right);
-        return Math.max(leftHeight, rightHeight) + 1;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        int height = 0;
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+
+            for (int i = 0; i < levelSize; i++) {
+                Node node = queue.poll();
+
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+
+            height++;
+        }
+
+        return height;
     }
+
     
     /**
      * Default Constructor Initializes the root of BST with null.
@@ -154,10 +175,14 @@ public class BSTIterative {
                     Node child = temp.right.left;
                     while (child.left != null) {
                         parent2 = child;
-                        child = parent2.left;
+                        child = child.left;
                     }
                     temp.data = child.data;
-                    parent2.left = child.right;
+                    if (parent2 == temp.right) {
+                        parent2.left = child.right;
+                    } else {
+                        parent2.left = null;
+                    }
                     replacement = temp;
                 }
             }
