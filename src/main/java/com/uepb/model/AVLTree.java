@@ -5,6 +5,19 @@ public class AVLTree {
 
     private Node root;
 
+    public int getHeight() {
+        return getHeight(root);
+    }
+    
+    private int getHeight(Node node) {
+        if (node == null) {
+            return -1;
+        }
+        int leftHeight = getHeight(node.left);
+        int rightHeight = getHeight(node.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    
     private class Node {
 
         private int key;
@@ -43,6 +56,7 @@ public class AVLTree {
                         parent.right = new Node(key, parent);
                     }
                     rebalance(parent);
+                    reheight(root);
                     break;
                 }
             }
@@ -62,6 +76,7 @@ public class AVLTree {
                     parent.right = null;
                 }
                 rebalance(parent);
+                reheight(root);
             }
             return;
         }
@@ -123,6 +138,7 @@ public class AVLTree {
             rebalance(n.parent);
         } else {
             root = n;
+            reheight(root);
         }
     }
 
