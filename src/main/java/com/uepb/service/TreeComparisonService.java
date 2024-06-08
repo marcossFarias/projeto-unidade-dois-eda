@@ -41,12 +41,12 @@ public class TreeComparisonService {
             long elapsedTimeRB = System.nanoTime() - startTimeRB;
             int heightRBT = rbTree.getHeight();
             System.out.println("Red-Black Tree - Rotations: " + movesRB + ", Height: " + heightRBT + ", Elapsed Time: " + elapsedTimeRB / 1000000 + " ms");
-            
+
             SplayTree splayTree = new SplayTree();
             long startTimeSP = System.nanoTime();
             int movesSP = SplayTreeController.fillTree(splayTree, file);
             long elapsedTimeSP = System.nanoTime() - startTimeSP;
-            int heightSP = splayTree.getHeight();
+            int heightSP = splayTree.treeHeight(splayTree.getRoot());
             System.out.println("Splay Tree - Rotations: " + movesSP +  ", Height: " + heightSP + ", Elapsed Time: " + elapsedTimeSP / 1000000 + " ms");
             
             System.out.println();

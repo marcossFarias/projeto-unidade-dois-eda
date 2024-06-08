@@ -10,7 +10,7 @@ public class SplayTreeController {
     public static int fillTree(SplayTree tree, File file) {
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextInt()) {
-                double value = scanner.nextInt();
+                int value = scanner.nextInt();
                 tree.insert(value);
             }
         } catch (FileNotFoundException e) {
@@ -18,6 +18,6 @@ public class SplayTreeController {
             return -1;
         }
 
-        return tree.rotationCount;
+        return tree.rotations;
     }
 }
