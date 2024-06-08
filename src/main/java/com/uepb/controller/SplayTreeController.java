@@ -11,8 +11,6 @@ public class SplayTreeController {
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextInt()) {
                 double value = scanner.nextInt();
-                System.out.println("ado");
-                System.out.println(value);
                 tree.insert(value);
             }
         } catch (FileNotFoundException e) {
