@@ -25,7 +25,7 @@ public class TreeComparisonService {
             long startTimeAVL = System.nanoTime();
             int movesAVL = AVLController.fillTree(avlTree, file);
             long elapsedTimeAVL = System.nanoTime() - startTimeAVL;
-            int heightAVL = avlTree.getTreeHeight();
+            int heightAVL = avlTree.getHeight();
             System.out.println("AVL Tree - Rotations: " + movesAVL + ", Height: " + heightAVL + ", Elapsed Time: " + elapsedTimeAVL / 1000000 + " ms");
             
             BSTIterative bstIterative = new BSTIterative();
@@ -34,7 +34,7 @@ public class TreeComparisonService {
             long elapsedTimeBST = System.nanoTime() - startTimeBST;
             int heightBST = bstIterative.getHeight();
             System.out.println("BS Tree - Rotations: " + movesBST + ", Height: " + heightBST + ", Elapsed Time: " + elapsedTimeBST / 1000000 + " ms");
-
+            
             RedBlackBST rbTree = new RedBlackBST();
             long startTimeRB = System.nanoTime();
             int movesRB = RedBlackController.fillTree(rbTree, file);
