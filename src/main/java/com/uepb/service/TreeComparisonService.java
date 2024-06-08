@@ -11,6 +11,7 @@ import com.uepb.controller.SplayTreeController;
 import com.uepb.model.AVLTree;
 import com.uepb.model.BSTIterative;
 import com.uepb.model.RedBlackBST;
+import com.uepb.model.SplayTree;
 
 public class TreeComparisonService {
     public void compareTreeRotations(String[] fileNames) {
@@ -19,7 +20,7 @@ public class TreeComparisonService {
             File file = path.toFile();
 
             System.out.println("File: " + fileName);
-
+            
             AVLTree avlTree = new AVLTree();
             long startTimeAVL = System.nanoTime();
             int movesAVL = AVLController.fillTree(avlTree, file);
@@ -40,11 +41,12 @@ public class TreeComparisonService {
             long elapsedTimeRB = System.nanoTime() - startTimeRB;
             int heightRBT = rbTree.getHeight();
             System.out.println("Red-Black Tree - Rotations: " + movesRB + ", Height: " + heightRBT + ", Elapsed Time: " + elapsedTimeRB / 1000000 + " ms");
-        
+            
+            SplayTree splayTree = new SplayTree();
             long startTimeSP = System.nanoTime();
-            int movesSP = SplayTreeController.fillTree(file);
+            int movesSP = SplayTreeController.fillTree(splayTree, file);
             long elapsedTimeSP = System.nanoTime() - startTimeSP;
-            int heightSP = SplayTreeController.getSPHeight();
+            int heightSP = splayTree.getHeight();
             System.out.println("Splay Tree - Rotations: " + movesSP +  ", Height: " + heightSP + ", Elapsed Time: " + elapsedTimeSP / 1000000 + " ms");
             
             System.out.println();

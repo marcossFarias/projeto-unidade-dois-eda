@@ -7,21 +7,19 @@ import java.util.Scanner;
 import com.uepb.model.SplayTree;
 
 public class SplayTreeController {
-    public static int fillTree(File file) {
+    public static int fillTree(SplayTree tree, File file) {
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextInt()) {
-                int value = scanner.nextInt();
-                SplayTree.add(value);
+                double value = scanner.nextInt();
+                System.out.println("ado");
+                System.out.println(value);
+                tree.insert(value);
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
             return -1;
         }
 
-        return SplayTree.rotationCount;
+        return tree.rotationCount;
     }
-
-    public static int getSPHeight() {
-		return SplayTree.getHeight();
-	}
 }

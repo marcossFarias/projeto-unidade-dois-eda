@@ -12,7 +12,7 @@ public class App {
         String[] filePaths = FilePathFinder.getAbsoluteFilePaths(directoryPath); 
 
         // PARA UMA MASSA DE TESTE SÓ
-        //String[] filePaths = new String[] {"/home/user/Documents/projects/projeto-unidade-dois-eda/resources/test-array-1M-ordenado-decrescente.txt"}; 
+        //String[] filePaths = new String[] {"/home/user/Documents/projects/projeto-unidade-dois-eda/resources/test-array-2M-desordenado.txt"}; 
 
         service.compareTreeRotations(filePaths);
     }
