@@ -166,16 +166,16 @@ public class SplayTree{
 
 	//function to search for a data value in the tree.
 	public Node find(int data){
-		System.out.println("Searching for node : " + data);
+		//System.out.println("Searching for node : " + data);
 		if(root==null){
-			System.out.println("Empty Tree.");
+			//System.out.println("Empty Tree.");
 			return null;
 		}
 		
 		Node temp = root;
 		while(temp!=null){
 			if(temp.data == data){
-				System.out.println("Found node : " + data);
+				//System.out.println("Found node : " + data);
 				splay(temp);
 				return temp;
 			}
@@ -186,23 +186,23 @@ public class SplayTree{
 				temp = temp.right;
 			}
 		}
-		System.out.println("Node not found.");
+		//System.out.println("Node not found.");
 		return null;
 	}
 
 	//function to find the min value from the given node.
 	public Node findMin(Node node){
 		if(node==null){
-			System.out.println("Empty Tree.");
+			//System.out.println("Empty Tree.");
 			return null;
 		}
-		System.out.println("Finding Minimum.");
+		//System.out.println("Finding Minimum.");
 		Node min = node;
 		while(min.left!=null){
 			min = min.left;
 		}
 		splay(min);
-		System.out.println("Minimum node : " + min.data);
+		//System.out.println("Minimum node : " + min.data);
 		return min;
 	}
 

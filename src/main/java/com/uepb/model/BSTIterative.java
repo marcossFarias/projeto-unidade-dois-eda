@@ -219,11 +219,11 @@ public class BSTIterative {
             } else {
                 /* If found return true
                  */
-                System.out.println(data + " is present in the BST.");
+                // System.out.println(data + " is present in the BST.");
                 return true;
             }
         }
-        System.out.println(data + " not found.");
+        //System.out.println(data + " not found.");
         return false;
     }
 }

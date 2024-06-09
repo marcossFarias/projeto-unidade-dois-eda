@@ -1,5 +1,9 @@
 package com.uepb.model;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -354,5 +358,24 @@ public class RedBlackBST {
 
     public void printRotationCount() {
         System.out.println("Number of rotations: " + rotationCount);
+    }
+
+    public int performSearch(String filePath) {
+        int totalFound = 0;
+        try {
+            File file = new File(filePath);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = br.readLine()) != null) {
+                int key = Integer.parseInt(line.trim());
+                if (findNode(new Node(key), root) != null) {
+                    totalFound++;
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return totalFound;
     }
 }
